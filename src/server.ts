@@ -46,7 +46,10 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
     //    3. send the resulting file in the response
     return res.status(200)
-              .sendFile(filteredPath);
+              .sendFile(filteredPath, () => {
+                //    4. deletes any files on the server on finish of the response
+                deleteLocalFiles([filteredPath]);
+              });
   } );
   
   // Root Endpoint
