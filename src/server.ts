@@ -41,7 +41,10 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
                 .send(`image_url is required`);
     }
 
-    
+    //2. call filterImageFromURL(image_url) to filter the image
+    const filteredPath = await filterImageFromURL(image_url);
+
+
 
     
   } );
