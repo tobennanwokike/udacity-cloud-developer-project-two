@@ -44,9 +44,9 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     //2. call filterImageFromURL(image_url) to filter the image
     const filteredPath = await filterImageFromURL(image_url);
 
-
-
-    
+    //    3. send the resulting file in the response
+    return res.status(200)
+              .sendFile(filteredPath);
   } );
   
   // Root Endpoint
